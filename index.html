@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login Page</title>
+    <style>
+        body {
+            font-family: Arial;
+            background-image: url("https://images.hdqwalls.com/wallpapers/italy-mountains-lake-scenery-5k-gr.jpg"); 
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        .box {
+            width: 320px;
+            margin: 120px auto;
+            padding: 25px;
+            background: rgba(201, 38, 255, 0.75);
+            border-radius: 12px;
+            backdrop-filter: blur(5px);
+        }
+
+        h2 {
+            text-align: center;
+            color: purple;
+        }
+
+        input, button {
+            width: 100%;
+            padding: 10px;
+            margin: 12px 0;
+            border-radius: 6px;
+            border: none;
+            font-size: 16px;
+        }
+
+        button {
+            background: rgb(159, 230, 27);
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .forgot {
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        .forgot a {
+            color: lime;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        #msg {
+            text-align: center;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="box">
+    <h2>Login</h2>
+
+    <input type="email" id="email" placeholder="Enter Gmail ID">
+    <input type="password" id="pass" placeholder="Enter Password">
+    <button onclick="login()">Login</button>
+
+    <p id="msg"></p>
+
+    <!-- Forgot Page Link -->
+    <p class="forgot">
+        <a href="forgot.html">Forgot Credentials?</a>
+    </p>
+</div>
+
+<script>
+function login() {
+    let email = document.getElementById("email").value.trim();
+    let pass = document.getElementById("pass").value;
+    let msg = document.getElementById("msg");
+
+    // Gmail validation
+    if (!email.endsWith("@gmail.com")) {
+        msg.innerHTML = "Email must end with @gmail.com";
+        msg.style.color = "yellow";
+        return;
+    }
+
+    // Password length check (8 or more)
+    if (pass.length < 8) {
+        msg.innerHTML = "Password less than 8 digits";
+        msg.style.color = "yellow";
+        return;
+    }
+
+    // Success → redirect to home
+    msg.innerHTML = "Login Successful!";
+    msg.style.color = "lime";
+
+    setTimeout(() => {
+        window.location.href = "home.html";
+    }, 800);
+}
+</script>
+
+</body>
+</html>

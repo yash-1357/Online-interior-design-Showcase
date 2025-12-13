@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Review Page</title>
+    <style>
+        body { 
+            font-family: Arial;
+            height: 100vh;
+            margin: 0;
+            background-image: url("https://images.hdqwalls.com/wallpapers/autumn-on-lago-di-braies-italian-dolomites-uv.jpg");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        
+        textarea { 
+            width: 300px; 
+            height: 120px; 
+        }
+
+        #msg { 
+            color: rgb(114, 175, 0); 
+        }
+    </style>
+</head>
+<body>
+<center>
+<h2>Review Page</h2>
+<p>Write your experience below:</p>
+
+<textarea id="review" placeholder="Write your review here..."></textarea>
+<br><br>
+
+<button onclick="submitReview()">Submit Review</button>
+<br><br>
+
+<p id="msg"></p>
+<a href="home.html" style="color:rgb(1, 255, 39);">Back to Home</a>
+
+<script>
+function submitReview() {
+    let text = document.getElementById("review").value;
+
+    if(text.trim() === "") {
+        document.getElementById("msg").innerHTML = "Please write something!";
+        document.getElementById("msg").style.color = "yellow";
+    } else {
+        document.getElementById("msg").innerHTML = "Thank you for your review!";
+       document.getElementById("msg").style.color = "aqua";
+        document.getElementById("review").value = "";
+    }
+}
+</script>
+
+</body>
+</html>
+
